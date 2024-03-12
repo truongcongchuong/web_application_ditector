@@ -5,7 +5,7 @@ import pandas as pd
 
 mp_Hands = mp.solutions.hands
 mp_drawing = mp.solutions.drawing_utils
-hand = mp_Hands.Hands(min_detection_confidence=0.5, min_tracking_confidence=0.5)
+hand = mp_Hands.Hands()
     
 cap = cv2.VideoCapture(0)
 Label = input("nhập hành động thêm vào:")
@@ -57,3 +57,4 @@ print(DataFrame)
 
 DataFrame.to_csv(PATH_DATA, columns=None, index=None, mode="a", header=False)
 LabelFrame.to_csv(PATH_LABEL, columns=None, index=None, mode="a", header=False)
+# cơ bản tôi viết giống form của tỉnh thôi kết quả như của tỉnh

@@ -46,3 +46,14 @@ model.compile(optimizer='Adam', loss='categorical_crossentropy', metrics=['categ
 model.fit(x_train, y_train, epochs=500, validation_data=(x_test, y_test))
 model.summary()
 model.save("model.h5")
+
+predictions = model.predict(x_test)
+predicted_classes = np.argmax(predictions, axis=1)
+print(predicted_classes)
+print(predictions)
+print(label_encoder.inverse_transform(predicted_classes))
+
+y_true = np.argmax(y_test, axis=1)
+
+accuracy = accuracy_score(y_true, predicted_classes)
+print(f"độ chính xác:{accuracy*100}%")
